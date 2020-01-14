@@ -1,3 +1,9 @@
+buildscript {
+	ext {
+		testcontainersVersion = "1.12.4"
+	}
+}
+
 plugins {
 	id 'org.springframework.boot' version '2.2.2.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
@@ -5,18 +11,46 @@ plugins {
 }
 
 group = 'com.letsdev'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
 
 repositories {
 	mavenCentral()
 }
 
+bootRun {
+	args = ["--spring.profiles.active=local"]
+	classpath = sourceSets.main.runtimeClasspath
+	jvmArgs = ["-server", "-Xms256m", "-Xmx512m", "-Duser.country=US", "-Duser.language=en", "-Duser.timezone=UTC"]
+}
+
+apply from: "gradle/lombok.gradle"
+
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
+
+	// Common dependencies
+	implementation("org.flywaydb:flyway-core")
+	implementation("org.postgresql:postgresql")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa") {
+		exclude module: "spring-aspects"
+		exclude module: "spring-boot-starter-aop"
+	}
+	implementation("org.springframework.boot:spring-boot-starter-undertow")
+	implementation("org.springframework.boot:spring-boot-starter-web") {
+		exclude module: "spring-boot-starter-tomcat"
+	}
+
+	// Test dependencies
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	testImplementation("org.testcontainers:testcontainers:${testcontainersVersion}")
 }
 
 test {

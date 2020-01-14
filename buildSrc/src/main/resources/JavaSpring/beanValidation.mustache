@@ -1,0 +1,15 @@
+{{#required}}
+  @NotNull
+{{/required}}{{#isContainer}}{{^isPrimitiveType}}{{^isEnum}}
+  @Valid{{/isEnum}}{{/isPrimitiveType}}{{/isContainer}}{{#isNotContainer}}{{^isPrimitiveType}}
+  @Valid{{/isPrimitiveType}}{{/isNotContainer}}{{#creditCardNumber}}
+  @CreditCardNumber{{/creditCardNumber}}{{#currency}}
+  @Digits(integer = 12, fraction = 2){{/currency}}{{#email}}
+  @Email{{/email}}{{#future}}
+  @Future{{/future}}{{#notBlank}}
+  @NotBlank{{/notBlank}}{{#password}}
+  @Password{{/password}}{{#phone}}
+  @Phone{{/phone}}{{#uniqueElements}}
+  @UniqueElements{{/uniqueElements}}{{#url}}
+  @URL{{/url}}
+{{>beanValidationCore}}

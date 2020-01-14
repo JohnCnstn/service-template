@@ -1,0 +1,22 @@
+import com.letsdev.employeedevelopmentcards.build.SwaggerGenerateTask
+
+task generateApi(type: SwaggerGenerateTask) {
+    inputSpecPath = "$rootDir/src/main/resources/swagger/swagger.yaml"
+    outputDirPath = swaggerOutputDirPath
+    apiPackage = basePackage + ".generated.api"
+    modelPackage = basePackage + ".generated.model"
+}
+
+clean.doFirst {
+    delete(swaggerSourceDir)
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir swaggerSourceDir
+        }
+    }
+}
+
+compileJava.dependsOn generateApi
