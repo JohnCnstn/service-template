@@ -1,0 +1,19 @@
+---
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: "${SPRING_DATASOURCE_URL:}"
+    username: "${SPRING_DATASOURCE_USERNAME:}"
+    password: "${SPRING_DATASOURCE_PASSWORD:}"
+server:
+  port: "${PORT:8080}"
+
+---
+spring:
+  profiles: local
+  datasource:
+    url: "jdbc:postgresql://postgres-db:5432/cards-backend"
+    username: "cards"
+    password: "cards"
+  jpa:
+    show-sql: "true"
