@@ -1,4 +1,4 @@
-import com.letsdev.employeedevelopmentcards.build.SwaggerGenerateTask
+import com.letsdev.cards.build.SwaggerGenerateTask
 
 task generateApi(type: SwaggerGenerateTask) {
     inputSpecPath = "$rootDir/src/main/resources/swagger/swagger.yaml"
