@@ -1,6 +1,6 @@
-package com.letsdev.employeedevelopmentcards.api
+package com.letsdev.employeedevelopmentcards.integration.api
 
-import com.letsdev.employeedevelopmentcards.AbstractIntegrationTest
+import com.letsdev.employeedevelopmentcards.integration.AbstractIntegrationTest
 import org.junit.Test
 
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
