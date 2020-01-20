@@ -27,6 +27,11 @@ public class PostgresInitializer implements ApplicationContextInitializer<Config
         POSTGRES.start();
     }
 
+    @Override
+    public void initialize(ConfigurableApplicationContext applicationContext) {
+        applyProperties(applicationContext);
+    }
+
     private static String getHost() {
         return POSTGRES.getContainerIpAddress();
     }
@@ -35,23 +40,18 @@ public class PostgresInitializer implements ApplicationContextInitializer<Config
         return POSTGRES.getMappedPort(POSTGRES_PORT);
     }
 
-    private static String getUrl() {
-        return "jdbc:postgresql:" + UriComponentsBuilder.newInstance()
-                .host(getHost()).port(getPort()).path(POSTGRES_DB)
-                .toUriString();
-    }
-
-    @Override
-    public void initialize(ConfigurableApplicationContext applicationContext) {
-        applyProperties(applicationContext);
-    }
-
     private void applyProperties(ConfigurableApplicationContext applicationContext) {
         TestPropertyValues.of(
                 "spring.datasource.url:" + getUrl(),
                 "spring.datasource.username:" + POSTGRES_USER,
                 "spring.datasource.password:" + POSTGRES_PASSWORD
         ).applyTo(applicationContext);
+    }
+
+    private static String getUrl() {
+        return "jdbc:postgresql:" + UriComponentsBuilder.newInstance()
+                .host(getHost()).port(getPort()).path(POSTGRES_DB)
+                .toUriString();
     }
 
 }

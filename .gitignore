@@ -1,8 +1,7 @@
 .gradle
-build/
+/build/
 !gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**
-!**/src/test/**
+/src/main/com/letsdev/employeedevelopmentcards/generated
 
 ### STS ###
 .apt_generated
@@ -18,7 +17,7 @@ build/
 *.iws
 *.iml
 *.ipr
-out/
+/out/
 
 ### NetBeans ###
 /nbproject/private/
