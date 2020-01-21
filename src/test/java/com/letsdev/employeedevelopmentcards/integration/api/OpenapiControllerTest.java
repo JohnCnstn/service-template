@@ -1,7 +1,7 @@
 package com.letsdev.employeedevelopmentcards.integration.api;
 
 import com.letsdev.employeedevelopmentcards.integration.AbstractIntegrationTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;

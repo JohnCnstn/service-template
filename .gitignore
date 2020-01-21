@@ -1,7 +1,9 @@
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
-/src/main/com/letsdev/employeedevelopmentcards/generated
+/src/main/java/com/letsdev/employeedevelopmentcards/generated
+/buildSrc/build
+/buildSrc/.gradle
 
 ### STS ###
 .apt_generated

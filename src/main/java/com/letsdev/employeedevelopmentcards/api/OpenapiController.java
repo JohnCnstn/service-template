@@ -24,7 +24,8 @@ public class OpenapiController {
     public OpenapiController(ObjectMapper objectMapper,
                              ResourceLoader resourceLoader,
                              Yaml yaml) {
-        Map<String, Object> openapiSpec = yaml.load(resourceLoader.getResource("classpath:/openapi/openapi.yaml").getInputStream());
+        Map<String, Object> openapiSpec = yaml.load(
+                resourceLoader.getResource("classpath:/openapi/openapi.yaml").getInputStream());
         var openapiYaml = populateVersion(openapiSpec);
         this.openapiYaml = yaml.dump(openapiYaml);
         this.openapiJson = objectMapper.writeValueAsString(openapiYaml);
