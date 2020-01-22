@@ -16,7 +16,6 @@ apply(from = "gradle/generate-openapi.gradle.kts")
 apply(from = "gradle/checkstyle.gradle")
 apply(from = "gradle/jacoco.gradle")
 apply(from = "gradle/lombok.gradle.kts")
-apply(from = "gradle/test.gradle.kts")
 
 group = "com.servicetemplate"
 version = "0.0.1-SNAPSHOT"
@@ -53,6 +52,15 @@ dependencies {
     runtimeOnly("javax.xml.bind:jaxb-api")
     runtimeOnly("org.postgresql:postgresql:${Versions.postgresql}")
 
+    // Test dependencies
+    testImplementation("com.github.javafaker:javafaker:${Versions.javafaker}")
+    testImplementation("org.awaitility:awaitility:${Versions.awaitility}")
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+        exclude("org.junit.vintage:junit-vintage-engine")
+    }
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.2.0")
+    testImplementation("org.springframework.security:spring-security-test")
+    testImplementation("org.testcontainers:testcontainers:${Versions.testcontainers}")
 }
 
 configurations {
@@ -67,13 +75,6 @@ configurations {
 java {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "1.8"
-    }
 }
 
 tasks.bootRun {
