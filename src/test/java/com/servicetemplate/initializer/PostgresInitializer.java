@@ -1,4 +1,4 @@
-package com.letsdev.employeedevelopmentcards;
+package com.servicetemplate.initializer;
 
 import org.springframework.boot.test.util.TestPropertyValues;
 import org.springframework.context.ApplicationContextInitializer;
@@ -11,9 +11,9 @@ public class PostgresInitializer implements ApplicationContextInitializer<Config
 
     private static final int POSTGRES_PORT = 5432;
 
-    private static final String POSTGRES_USER = "cards";
-    private static final String POSTGRES_PASSWORD = "cards";
-    private static final String POSTGRES_DB = "cards-backend";
+    private static final String POSTGRES_USER = "template";
+    private static final String POSTGRES_PASSWORD = "template";
+    private static final String POSTGRES_DB = "template-backend";
 
     private static final GenericContainer POSTGRES =
             new GenericContainer("postgres:11.5-alpine")

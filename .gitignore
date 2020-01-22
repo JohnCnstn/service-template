@@ -1,7 +1,7 @@
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
-/src/main/java/com/letsdev/employeedevelopmentcards/generated
+/src/main/java/com/servicetemplate/generated
 /buildSrc/build
 /buildSrc/.gradle
 

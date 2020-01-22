@@ -15,8 +15,9 @@ apply(plugin = "io.spring.dependency-management")
 apply(from = "gradle/generate-openapi.gradle.kts")
 apply(from = "gradle/checkstyle.gradle")
 apply(from = "gradle/jacoco.gradle")
+apply(from = "gradle/lombok.gradle.kts")
 
-group = "by.cards"
+group = "com.servicetemplate"
 version = "0.0.1-SNAPSHOT"
 
 repositories {
@@ -25,13 +26,10 @@ repositories {
 
 dependencies {
     annotationProcessor("org.mapstruct:mapstruct-processor:${Versions.mapstruct}")
-    annotationProcessor("org.projectlombok:lombok")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
-    compileOnly("org.projectlombok:lombok")
-
-    //TODO move to versions
     compileOnly("org.springframework.data:spring-data-commons:2.2.4.RELEASE")
+
     implementation("com.fasterxml.jackson.module:jackson-module-afterburner")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.jsonwebtoken:jjwt-api:${Versions.jjwt}")
@@ -46,18 +44,20 @@ dependencies {
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib-jdk8"))
 
+    runtimeOnly("io.springfox:springfox-swagger-ui:2.9.2") {
+        exclude("springfox-spring-web")
+    }
     runtimeOnly("io.jsonwebtoken:jjwt-impl:${Versions.jjwt}")
     runtimeOnly("io.jsonwebtoken:jjwt-jackson:${Versions.jjwt}")
     runtimeOnly("javax.xml.bind:jaxb-api")
     runtimeOnly("org.postgresql:postgresql:${Versions.postgresql}")
 
+    // Test dependencies
     testImplementation("com.github.javafaker:javafaker:${Versions.javafaker}")
     testImplementation("org.awaitility:awaitility:${Versions.awaitility}")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude("org.junit.vintage:junit-vintage-engine")
     }
-
-    //TODO move to versions
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.2.0")
     testImplementation("org.springframework.security:spring-security-test")
     testImplementation("org.testcontainers:testcontainers:${Versions.testcontainers}")
@@ -75,13 +75,6 @@ configurations {
 java {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "1.8"
-    }
 }
 
 tasks.bootRun {

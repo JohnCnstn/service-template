@@ -12,10 +12,10 @@ server:
 spring:
   profiles: local
   datasource:
-    url: "${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/cards-backend}"
-    username: "cards"
-    password: "cards"
+    url: "jdbc:postgresql://localhost:5432/template-backend"
+    username: "template"
+    password: "template"
   jpa:
     show-sql: "true"
 server:
-  port: "8081"
+  port: "8080"

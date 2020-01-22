@@ -1,13 +1,13 @@
-package com.letsdev.employeedevelopmentcards;
+package com.servicetemplate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CardsApplication {
+public class TemplateApplication {
 
 	public static void main(final String[] args) {
-		SpringApplication.run(CardsApplication.class, args);
+		SpringApplication.run(TemplateApplication.class, args);
 	}
 
 }

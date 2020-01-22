@@ -1,1 +1,1 @@
-rootProject.name = "cards-backend"
+rootProject.name = "service-template"
