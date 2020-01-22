@@ -22,7 +22,6 @@ public class OpenapiController {
 
     public static final String OPENAPI_UI_REDIRECT_PATH = "/";
 
-    //TODO substitute with openapi
     public static final String GET_UI_CONFIGURATION_PATH = "/swagger-resources/configuration/ui";
     public static final String GET_SECURITY_CONFIGURATION_PATH = "/swagger-resources/configuration/security";
     public static final String GET_CONFIGURATION_PATH = "/swagger-resources";
@@ -46,7 +45,6 @@ public class OpenapiController {
         Map<String, Object> openapiSpec = yaml.load(
                 resourceLoader.getResource("classpath:/openapi/openapi.yaml").getInputStream());
 
-        //TODO substitute with openapi
         var configurationUiJson = loadJson(
                 objectMapper, resourceLoader, "classpath:/openapi/configuration-ui.json");
         var configurationSecurityJson = loadJson(

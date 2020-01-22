@@ -15,6 +15,8 @@ apply(plugin = "io.spring.dependency-management")
 apply(from = "gradle/generate-openapi.gradle.kts")
 apply(from = "gradle/checkstyle.gradle")
 apply(from = "gradle/jacoco.gradle")
+apply(from = "gradle/lombok.gradle.kts")
+apply(from = "gradle/test.gradle.kts")
 
 group = "com.servicetemplate"
 version = "0.0.1-SNAPSHOT"
@@ -25,14 +27,10 @@ repositories {
 
 dependencies {
     annotationProcessor("org.mapstruct:mapstruct-processor:${Versions.mapstruct}")
-    annotationProcessor("org.projectlombok:lombok")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
-    compileOnly("org.projectlombok:lombok")
     compileOnly("org.springframework.data:spring-data-commons:2.2.4.RELEASE")
 
-    //TODO move to versions
-    implementation("io.swagger:swagger-annotations:1.5.21")
     implementation("com.fasterxml.jackson.module:jackson-module-afterburner")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.jsonwebtoken:jjwt-api:${Versions.jjwt}")
@@ -55,16 +53,6 @@ dependencies {
     runtimeOnly("javax.xml.bind:jaxb-api")
     runtimeOnly("org.postgresql:postgresql:${Versions.postgresql}")
 
-    testImplementation("com.github.javafaker:javafaker:${Versions.javafaker}")
-    testImplementation("org.awaitility:awaitility:${Versions.awaitility}")
-    testImplementation("org.springframework.boot:spring-boot-starter-test") {
-        exclude("org.junit.vintage:junit-vintage-engine")
-    }
-
-    //TODO move to versions
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.2.0")
-    testImplementation("org.springframework.security:spring-security-test")
-    testImplementation("org.testcontainers:testcontainers:${Versions.testcontainers}")
 }
 
 configurations {
