@@ -26,6 +26,8 @@ Instructions for Java: [AdoptOpenJDK installation](https://adoptopenjdk.net/inst
 
 Instructions for Docker: [Docker installation](https://docs.docker.com/v17.12/install/)
 
+Instructions for Make: [Install make on Windows](http://gnuwin32.sourceforge.net/packages/make.htm)
+
 ### Running
 
 Project requires running PostgreSql database.
