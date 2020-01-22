@@ -1,4 +1,4 @@
-package com.letsdev.employeedevelopmentcards.config;
+package com.servicetemplate.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

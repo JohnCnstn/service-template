@@ -3,10 +3,10 @@ services:
 
   postgres-db:
     image: postgres:11.5-alpine
-    container_name: cards-postgres
+    container_name: template-postgres
     environment:
-      - POSTGRES_USER=cards
-      - POSTGRES_PASSWORD=cards
-      - POSTGRES_DB=cards-backend
+      - POSTGRES_USER=template
+      - POSTGRES_PASSWORD=template
+      - POSTGRES_DB=template-backend
     ports:
       - "5432:5432"

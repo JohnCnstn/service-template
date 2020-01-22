@@ -16,7 +16,7 @@ apply(from = "gradle/generate-openapi.gradle.kts")
 apply(from = "gradle/checkstyle.gradle")
 apply(from = "gradle/jacoco.gradle")
 
-group = "by.cards"
+group = "com.servicetemplate"
 version = "0.0.1-SNAPSHOT"
 
 repositories {
@@ -29,9 +29,10 @@ dependencies {
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
     compileOnly("org.projectlombok:lombok")
+    compileOnly("org.springframework.data:spring-data-commons:2.2.4.RELEASE")
 
     //TODO move to versions
-    compileOnly("org.springframework.data:spring-data-commons:2.2.4.RELEASE")
+    implementation("io.swagger:swagger-annotations:1.5.21")
     implementation("com.fasterxml.jackson.module:jackson-module-afterburner")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.jsonwebtoken:jjwt-api:${Versions.jjwt}")
@@ -46,6 +47,9 @@ dependencies {
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib-jdk8"))
 
+    runtimeOnly("io.springfox:springfox-swagger-ui:2.9.2") {
+        exclude("springfox-spring-web")
+    }
     runtimeOnly("io.jsonwebtoken:jjwt-impl:${Versions.jjwt}")
     runtimeOnly("io.jsonwebtoken:jjwt-jackson:${Versions.jjwt}")
     runtimeOnly("javax.xml.bind:jaxb-api")
