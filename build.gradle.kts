@@ -16,8 +16,9 @@ apply(from = "gradle/generate-openapi.gradle.kts")
 apply(from = "gradle/checkstyle.gradle")
 apply(from = "gradle/jacoco.gradle")
 apply(from = "gradle/lombok.gradle.kts")
+apply(from = "gradle/mapstruct.gradle")
 
-group = "com.servicetemplate"
+group = "com.johncnstn"
 version = "0.0.1-SNAPSHOT"
 
 repositories {
@@ -25,10 +26,11 @@ repositories {
 }
 
 dependencies {
-    annotationProcessor("org.mapstruct:mapstruct-processor:${Versions.mapstruct}")
+
+    // Common dependencies
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
-    compileOnly("org.springframework.data:spring-data-commons:2.2.4.RELEASE")
+    compileOnly("org.springframework.data:spring-data-commons:${Versions.springDataCommons}")
 
     implementation("com.fasterxml.jackson.module:jackson-module-afterburner")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -36,29 +38,26 @@ dependencies {
     implementation("io.swagger:swagger-annotations:${Versions.swaggerAnnotations}")
     implementation("org.apache.commons:commons-lang3")
     implementation("org.flywaydb:flyway-core:${Versions.flyway}")
-    implementation("org.mapstruct:mapstruct-jdk8:${Versions.mapstruct}")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-undertow")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.yaml:snakeyaml")
-    implementation(kotlin("reflect"))
-    implementation(kotlin("stdlib-jdk8"))
 
-    runtimeOnly("io.springfox:springfox-swagger-ui:2.9.2") {
-        exclude("springfox-spring-web")
-    }
     runtimeOnly("io.jsonwebtoken:jjwt-impl:${Versions.jjwt}")
     runtimeOnly("io.jsonwebtoken:jjwt-jackson:${Versions.jjwt}")
+    runtimeOnly("io.springfox:springfox-swagger-ui:${Versions.springfoxSwaggerUi}") {
+        exclude("springfox-spring-web")
+    }
     runtimeOnly("javax.xml.bind:jaxb-api")
     runtimeOnly("org.postgresql:postgresql:${Versions.postgresql}")
 
     // Test dependencies
     testImplementation("com.github.javafaker:javafaker:${Versions.javafaker}")
     testImplementation("org.awaitility:awaitility:${Versions.awaitility}")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:${Versions.junitJupiterEngine}")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude("org.junit.vintage:junit-vintage-engine")
     }
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.2.0")
     testImplementation("org.springframework.security:spring-security-test")
     testImplementation("org.testcontainers:testcontainers:${Versions.testcontainers}")
 }

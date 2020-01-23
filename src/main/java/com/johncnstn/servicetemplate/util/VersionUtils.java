@@ -1,4 +1,4 @@
-package com.servicetemplate.util;
+package com.johncnstn.servicetemplate.util;
 
 import lombok.experimental.UtilityClass;
 

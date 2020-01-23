@@ -1,4 +1,4 @@
-package com.servicetemplate.initializer;
+package com.johncnstn.servicetemplate.initializer;
 
 import org.springframework.boot.test.util.TestPropertyValues;
 import org.springframework.context.ApplicationContextInitializer;

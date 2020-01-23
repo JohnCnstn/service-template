@@ -1,4 +1,4 @@
-package com.servicetemplate.unit;
+package com.johncnstn.servicetemplate.unit;
 
 
 import org.junit.jupiter.api.BeforeEach;
