@@ -1,9 +1,9 @@
-package com.servicetemplate.util;
+package com.johncnstn.servicetemplate.util;
 
-import com.servicetemplate.unit.AbstractUnitTest;
+import com.johncnstn.servicetemplate.unit.AbstractUnitTest;
 import org.junit.jupiter.api.Test;
 
-import static com.servicetemplate.util.VersionUtils.getAppVersion;
+import static com.johncnstn.servicetemplate.util.VersionUtils.getAppVersion;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class VersionUtilsTest extends AbstractUnitTest {

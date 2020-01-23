@@ -1,9 +1,9 @@
-package com.servicetemplate.integration.api;
+package com.johncnstn.servicetemplate.integration.api;
 
-import com.servicetemplate.integration.AbstractIntegrationTest;
+import com.johncnstn.servicetemplate.integration.AbstractIntegrationTest;
 import org.junit.jupiter.api.Test;
 
-import static com.servicetemplate.api.OpenapiController.*;
+import static com.johncnstn.servicetemplate.api.OpenapiController.*;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;

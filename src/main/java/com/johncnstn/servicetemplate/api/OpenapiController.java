@@ -1,4 +1,4 @@
-package com.servicetemplate.api;
+package com.johncnstn.servicetemplate.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,7 +14,7 @@ import org.yaml.snakeyaml.Yaml;
 import java.io.IOException;
 import java.util.Map;
 
-import static com.servicetemplate.util.VersionUtils.getAppVersion;
+import static com.johncnstn.servicetemplate.util.VersionUtils.getAppVersion;
 
 @Controller
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
