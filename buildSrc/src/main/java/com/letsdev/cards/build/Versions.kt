@@ -7,7 +7,7 @@ object Versions {
     const val docker = "3.1.2"                          // https://mvnrepository.com/artifact/com.github.docker-java/docker-java
     const val flyway = "5.2.4"                          // https://mvnrepository.com/artifact/org.flywaydb/flyway-core
     const val guava = "28.2-jre"                        // https://mvnrepository.com/artifact/com.google.guava/guava
-    const val hibernateTypes = "2.4.0"                        //TODO add mvn url
+    const val hibernateTypes = "2.9.3"                  // https://mvnrepository.com/artifact/com.vladmihalcea/hibernate-types-52
     const val javafaker = "0.17.2"                      // https://mvnrepository.com/artifact/com.github.javafaker/javafaker
     const val javaxActivation = "1.1.1"                 // https://mvnrepository.com/artifact/javax.activation/activation
     const val jjwt = "0.10.6"                           // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api
