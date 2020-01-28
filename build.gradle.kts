@@ -34,14 +34,18 @@ dependencies {
 
     implementation("com.fasterxml.jackson.module:jackson-module-afterburner")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("com.google.guava:guava:${Versions.guava}")
+    implementation("com.vladmihalcea:hibernate-types-52:${Versions.hibernateTypes}")
     implementation("io.jsonwebtoken:jjwt-api:${Versions.jjwt}")
     implementation("io.swagger:swagger-annotations:${Versions.swaggerAnnotations}")
     implementation("org.apache.commons:commons-lang3")
     implementation("org.flywaydb:flyway-core:${Versions.flyway}")
-    implementation("org.springframework.boot:spring-boot-starter-jdbc")
+    implementation("org.postgresql:postgresql")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-undertow")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.yaml:snakeyaml")
+    implementation("org.zalando:problem-spring-web:${Versions.problemSpringWeb}")
 
     runtimeOnly("io.jsonwebtoken:jjwt-impl:${Versions.jjwt}")
     runtimeOnly("io.jsonwebtoken:jjwt-jackson:${Versions.jjwt}")
@@ -49,7 +53,6 @@ dependencies {
         exclude("springfox-spring-web")
     }
     runtimeOnly("javax.xml.bind:jaxb-api")
-    runtimeOnly("org.postgresql:postgresql:${Versions.postgresql}")
 
     // Test dependencies
     testImplementation("com.github.javafaker:javafaker:${Versions.javafaker}")

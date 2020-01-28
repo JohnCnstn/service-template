@@ -5,8 +5,8 @@ jacoco {
 def jacocoSkipFiles = ['com/johncnstn/servicetemplate/TemplateApplication.class',
                        'com/johncnstn/servicetemplate/generated/*/**',
                        'com/johncnstn/servicetemplate/config/**',
+                       'com/johncnstn/servicetemplate/exception/**',
 ]
-
 jacocoTestReport {
     reports {
         xml.enabled false
