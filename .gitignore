@@ -1,9 +1,9 @@
-HELP.md
 .gradle
-build/
+/build/
 !gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**
-!**/src/test/**
+/src/main/java/com/johncnstn/servicetemplate/generated
+/buildSrc/build
+/buildSrc/.gradle
 
 ### STS ###
 .apt_generated
@@ -19,7 +19,7 @@ build/
 *.iws
 *.iml
 *.ipr
-out/
+/out/
 
 ### NetBeans ###
 /nbproject/private/
@@ -30,3 +30,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### macOS ###
+.DS_Store
