@@ -5,6 +5,7 @@ plugins {
     kotlin("jvm") version Versions.kotlin
     id("org.jetbrains.kotlin.plugin.spring") version Versions.kotlin
     id("org.springframework.boot") version Versions.springBoot
+    id("com.diffplug.gradle.spotless") version "3.27.1"
     checkstyle
     jacoco
     pmd
@@ -17,6 +18,7 @@ apply(from = "gradle/checkstyle.gradle")
 apply(from = "gradle/jacoco.gradle")
 apply(from = "gradle/lombok.gradle.kts")
 apply(from = "gradle/mapstruct.gradle")
+apply(from = "gradle/spotless.gradle")
 
 group = "com.johncnstn"
 version = "0.0.1-SNAPSHOT"
