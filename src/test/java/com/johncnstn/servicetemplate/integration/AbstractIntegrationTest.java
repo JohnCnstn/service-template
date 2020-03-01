@@ -11,16 +11,11 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @ActiveProfiles("test")
 @AutoConfigureMockMvc
-@ContextConfiguration(initializers = {
-        PostgresInitializer.class
-})
+@ContextConfiguration(initializers = {PostgresInitializer.class})
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public abstract class AbstractIntegrationTest {
 
-    @Autowired
-    protected MockMvc mockMvc;
+    @Autowired protected MockMvc mockMvc;
 
-    @Autowired
-    protected ObjectMapper objectMapper;
-
+    @Autowired protected ObjectMapper objectMapper;
 }
